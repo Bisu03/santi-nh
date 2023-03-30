@@ -264,7 +264,7 @@ const AdmissionDetails = () => {
                 </tr>
                 <tr>
                   <th className={admissionDetailsStyles.patientdetailR}>
-                    Gurdian name
+                    Gurdian Name
                   </th>
                   <td className={admissionDetailsStyles.patientdetailR}>
                     {admissionData?.guardianName || "NA"}
@@ -280,7 +280,7 @@ const AdmissionDetails = () => {
                 </tr>
                 <tr>
                   <th className={admissionDetailsStyles.patientdetailR}>
-                    Medical case
+                    Medical Case
                   </th>
                   <td className={admissionDetailsStyles.patientdetailR}>
                     {admissionData?.medicalCase}
@@ -311,7 +311,7 @@ const AdmissionDetails = () => {
                     Billing
                   </th>
                   <td className={admissionDetailsStyles.patientdetailR}>
-                    {admissionData?.billingDone ? "Done" : "Pending"}
+                    {admissionData?.billingStatus}
                   </td>
                 </tr>
                 <tr>
@@ -486,7 +486,8 @@ const AdmissionDetails = () => {
                         {admissionData?.billing?.nursingCharge?.general?.days}
                       </td>
                       <td className={admissionDetailsStyles.tableitemTD}>
-                        {admissionData?.billing?.nursingCharge?.general?.total}.00
+                        {admissionData?.billing?.nursingCharge?.general?.total}
+                        .00
                       </td>
                     </tr>
                   )}
@@ -535,7 +536,8 @@ const AdmissionDetails = () => {
                         {
                           admissionData?.billing?.nursingCharge?.specialCare
                             ?.total
-                        }.00
+                        }
+                        .00
                       </td>
                     </tr>
                   )}

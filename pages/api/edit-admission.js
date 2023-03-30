@@ -50,6 +50,7 @@ export default async (req, res) => {
         dateOfAdmission,
         dateOfDeparture,
         admissioncharge,
+        admissiontype,
       } = patientDetails;
 
       await Patient.findByIdAndUpdate(patientId, {
@@ -69,10 +70,10 @@ export default async (req, res) => {
         dateOfAdmission,
         dateOfDeparture,
         admissioncharge,
+        admissiontype,
         billingStatus: billingStatus,
       });
 
-      console.log(billingStatus);
 
       if (billingDone) {
         await AdmissionBilling.findOneAndUpdate(

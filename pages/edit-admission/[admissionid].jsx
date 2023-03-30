@@ -61,6 +61,7 @@ const EditAdmission = () => {
             guardianName: data?.guardianName,
             guardianContactNo: data?.guardianContactNo,
             drrefferal: data?.drrefferal,
+            admissiontype: data?.admissiontype,
             dateOfAdmission: data?.dateOfAdmission,
             dateOfDeparture: data?.dateOfDeparture,
             admissioncharge: data?.admissioncharge,
@@ -99,7 +100,7 @@ const EditAdmission = () => {
         });
     };
     fetchDetailsByAdmissionID();
-  }, [admissionid]);
+  }, [admissionid, setAdmissionData]);
 
   useEffect(() => {
     // console.log(medicineCharges.total);
@@ -305,15 +306,35 @@ const EditAdmission = () => {
   console.log(billingStatus);
 
   const handleSubmit = () => {
-    const { admissionId, admission, fullname } = patientDetails;
-    setEnter(true)
+    // const {
+    //   admissionId,
+    //   admission,
+    //   fullname,
+    //   gender,
+    //   age,
+    //   contactNo,
+    //   aadharNo,
+    //   address,
+    //   medicalCase,
+    //   guardianName,
+    //   guardianContactNo,
+    //   drrefferal,
+    //   dateOfAdmission,
+    //   dateOfDeparture,
+    //   admissioncharge,
+    //   admissiontype,
+    // } = patientDetails;
+    setEnter(true);
 
-    if (admissionId && admission && fullname) {
+    if (
+      patientDetails.admissionId &&
+      patientDetails.admission &&
+      patientDetails.fullname
+    ) {
       let payload = {
         patientId: admissionData.patient._id,
         patientDetails,
-        admissionId,
-
+        admissionId: patientDetails.admissionId,
         billingDone: admissionData.billingDone,
       };
       if (admissionData.billingDone) {
@@ -363,7 +384,7 @@ const EditAdmission = () => {
   return (
     <>
       <Navbar />
-      <Heading title="Billing" />
+      <Heading title="Update Records" />
       <div className="flex  justify-center w-full my-6 ">
         <div className=" p-5 bg-red-100 rounded-md  ">
           <div className="form-control">
@@ -520,12 +541,10 @@ const EditAdmission = () => {
                 Admission Type{" "}
               </span>
               <select
-                type="text"
                 name="admissiontype"
                 value={patientDetails?.admissiontype}
                 onChange={handlePatientDetailsChange}
                 className="input input-bordered border-black w-8/12 text-xl ">
-                <option>Select</option>
                 <option value="General">General</option>
                 <option value="Swastha Swathi">Swastha Swathi</option>
                 <option value="Cashless">Cashless</option>
@@ -583,7 +602,7 @@ const EditAdmission = () => {
         </div>
       </div>
 
-      {admissionData.billingDone ? (
+      {admissionData?.billingDone ? (
         <>
           <div className="btn btn-block rounded-none cursor-default text-lg ">
             Accommodation Type 1st Bed
@@ -1369,6 +1388,11 @@ const EditAdmission = () => {
           } `}>
           Update
         </button>
+        <Link
+          href="/patientrecord"
+          className={`btn btn-warning btn-xs sm:btn-sm md:btn-md lg:btn-lg ml-4 `}>
+          Cancel
+        </Link>
       </div>
     </>
   );

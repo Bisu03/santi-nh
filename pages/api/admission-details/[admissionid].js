@@ -8,17 +8,18 @@ export default async (req, res) => {
     const session = await getSession({ req });
 
     if (session) {
-      const admissiondata = await Admission.findOne({
+      const admissionData = await Admission.findOne({
         admissionId: req.query.admissionid,
         isDeleted: false,
       }).populate({
         path: "patient",
       });
 
-      let admission;
-      console.log(admissiondata.billingDone);
+      console.log(req.query.admissionid);
 
-      if (admissiondata.billingDone === true) {
+      let admission;
+
+      if (admissionData?.billingDone === true) {
         admission = await Admission.findOne({
           admissionId: req.query.admissionid,
           isDeleted: false,
@@ -30,7 +31,7 @@ export default async (req, res) => {
             path: "billing",
           });
       } else {
-        admission = admissiondata;
+        admission = admissionData;
       }
 
       return res.status(200).json(admission);

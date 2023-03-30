@@ -8,7 +8,6 @@ const dashboard = () => {
   const [fetchData, setFetchData] = useState([]);
   const [loading, setLoading] = useState(false);
   const { data: session, status } = useSession();
-  const [loding, setLoding] = useState(false);
   const [dashData, setDashData] = useState([]);
   const [dashAdmited, setDashAdmited] = useState([]);
   const [dashDispatch, setDashDispatch] = useState([]);
@@ -23,7 +22,7 @@ const dashboard = () => {
   useEffect(() => {
     const getdata = async () => {
       try {
-        setLoding(true);
+        setLoading(true);
         const { data } = await axios.get(
           "/api/dailydata?fromdate=" +
             getDate.fromdate +
@@ -34,10 +33,10 @@ const dashboard = () => {
         setDashData(data);
         setDashAdmited(data.getadmission.length);
         setDashDispatch(data.getdeparture.length);
-        setLoding(false);
+        setLoading(false);
       } catch (error) {
         console.log(error);
-        setLoding(false);
+        setLoading(false);
       }
     };
     getdata();
@@ -136,7 +135,7 @@ const dashboard = () => {
         </div>
       </div>
 
-      <div className=" flex justify-center my-4 ">
+      {/* <div className=" flex justify-center my-4 ">
         <div className="btn-group">
           <button onClick={handletoday} className="btn btn-active">
             Todays
@@ -148,7 +147,7 @@ const dashboard = () => {
             Months
           </button>
         </div>
-      </div>
+      </div> */}
 
       <div className="overflow-x-auto bg-accent p-5 my-5 ">
         <div className=" text-center font-bold text-base-100 mb-5 ">
@@ -168,9 +167,9 @@ const dashboard = () => {
           </thead>
           <tbody>
             <>
-              {fetchData?.map(
+              {dashData?.getadmission?.map(
                 (patient, indx) =>
-                  !patient.billingDone && (
+                  patient.billingStatus === "Pending" && (
                     <tr key={patient?._id}>
                       <th> {indx + 1} </th>
                       <td>{patient?.admissionId}</td>
@@ -206,9 +205,9 @@ const dashboard = () => {
           </thead>
           <tbody>
             <>
-              {fetchData?.map(
+              {dashData?.getadmission?.map(
                 (patient, indx) =>
-                  patient.billingDone && (
+                  patient.billingStatus === "Done" && (
                     <tr key={patient?._id}>
                       <th> {indx + 1} </th>
                       <td>{patient?.admissionId}</td>
@@ -216,7 +215,9 @@ const dashboard = () => {
                       <td>{patient?.patient?.contactNo}</td>
                       <td>{patient?.patient?.gender}</td>
                       <td>
-                        <div className="badge badge-success gap-2">Done</div>
+                        <div className="badge badge-success gap-2">
+                          {patient.billingStatus}
+                        </div>
                       </td>
                     </tr>
                   )

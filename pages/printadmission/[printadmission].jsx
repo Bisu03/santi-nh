@@ -321,14 +321,16 @@ const Printadmission = () => {
                       </td>
                     </tr>
                   )}
-                  <tr>
-                    <th className={admissionDetailsStyles.patientdetailR}>
-                      Admission Charge
-                    </th>
-                    <td className={admissionDetailsStyles.patientdetailR}>
-                      {admissionData?.admissioncharge}/-
-                    </td>
-                  </tr>
+                  {admissionData?.admissioncharge && (
+                    <tr>
+                      <th className={admissionDetailsStyles.patientdetailR}>
+                        Admission Charge
+                      </th>
+                      <td className={admissionDetailsStyles.patientdetailR}>
+                        {admissionData?.admissioncharge}/-
+                      </td>
+                    </tr>
+                  )}
                 </tbody>
               </table>
             </div>
@@ -405,14 +407,6 @@ const Printadmission = () => {
                 <tbody>
                   <tr>
                     <th className={admissionDetailsStyles.patientdetailR}>
-                      NH ID
-                    </th>
-                    <td className={admissionDetailsStyles.patientdetailR}>
-                      {admissionData?.nhId}
-                    </td>
-                  </tr>
-                  <tr>
-                    <th className={admissionDetailsStyles.patientdetailR}>
                       Admission ID
                     </th>
                     <td className={admissionDetailsStyles.patientdetailR}>
@@ -470,6 +464,12 @@ const Printadmission = () => {
                       {admissionData?.patient?.address}
                     </td>
                   </tr>
+                </tbody>
+              </table>
+
+              <table
+                className={`${admissionDetailsStyles.pateintDetailsTable}`}>
+                <tbody>
                   {admissionData?.guardianName && (
                     <tr>
                       <th className={admissionDetailsStyles.patientdetailR}>
@@ -490,12 +490,6 @@ const Printadmission = () => {
                       </td>
                     </tr>
                   )}
-                </tbody>
-              </table>
-
-              <table
-                className={`${admissionDetailsStyles.pateintDetailsTable}`}>
-                <tbody>
                   {admissionData?.medicalCase && (
                     <tr>
                       <th className={admissionDetailsStyles.patientdetailR}>
