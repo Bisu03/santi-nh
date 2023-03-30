@@ -1,0 +1,243 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Poppins:wght@100&display=swap');
+
+.printborder {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.border {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 90%;
+}
+.heading {
+  font-weight: 600;
+  text-align: center;
+  font-size: 10px;
+}
+
+.head {
+  border: 1px solid rgb(187, 187, 187);
+  display: flex;
+  justify-content: space-evenly;
+  padding: 10px;
+  align-items: center;
+}
+
+.headH {
+  font-size: 12px;
+  text-align: center;
+}
+.headH > h1 {
+  font-size: 30px;
+  line-height: 5px;
+}
+.headP {
+  font-size: 13px;
+  margin: 0;
+  /* line-height: 1.6rem; */
+}
+.image {
+  border-radius: 5px;
+}
+.alignCenter {
+  padding-top: 10px;
+  margin-bottom: 20px;
+  width: auto;
+  /* padding: 5x; */
+  display: flex;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.alignCenterBox {
+  border: 1px solid rgb(187, 187, 187);
+  width: 120px;
+  height: 60px;
+  /* padding: 5x; */
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+.patientdetail {
+  /* border: 1px solid rgb(187, 187, 187); */
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.patientdetailR {
+  /* height: 20px; */
+  /* border: 1px solid rgb(187, 187, 187); */
+  width: 50px;
+  text-align: left;
+  /* line-height: 1; */
+  font-size: 12px;
+}
+.pateintDetailsTable {
+  width: 100%;
+  border-collapse: collapse;
+  /* border: 1px solid rgb(187, 187, 187); */
+
+  margin-left: 20px;
+}
+.tableFlex {
+  display: flex;
+  width: 100%;
+}
+.table {
+  border-collapse: collapse;
+  width: 100%;
+
+  margin: 5px auto;
+}
+
+.table > tbody {
+  border: 1px solid rgb(187, 187, 187);
+  height: auto;
+  width: 100%;
+  margin: 5px auto;
+}
+
+.tableitemService {
+  border: 1px solid rgb(187, 187, 187);
+  text-align: center;
+  font-size: 12px;
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 20px;
+  border: 1px solid rgb(187, 187, 187);
+}
+
+.borderTable {
+  width: 90%;
+  margin: auto;
+  /* border-style: ridge;
+  border-width: 1px; */
+  /* border-color: var(--secondary-bg); */
+}
+
+.tableitem {
+  width: 10%;
+  /* padding: 5px; */
+  /* font-weight: 500; */
+  /* letter-spacing: 0.7px; */
+  text-align: center;
+  font-size: 10px;
+}
+
+.tableitemTD {
+  /* padding: 3px; */
+  width: 10%;
+  text-align: center;
+  font-size: 12.5px;
+  font-weight: 500;
+}
+
+.tableitemTDService {
+  border-collapse: collapse;
+  /* padding: 3px; */
+  width: 20%;
+  text-align: left;
+  padding-left: 10px;
+  font-size: 12.5px;
+}
+.tableitemTDTotal {
+  border-collapse: collapse;
+  border: 1px solid rgb(187, 187, 187);
+  /* padding: 3px; */
+  width: 10%;
+  text-align: left;
+  padding-left: 10px;
+  font-weight: 600;
+  font-size: 12px;
+}
+.tableitemTDWord {
+  border-collapse: collapse;
+  border: 1px solid rgb(187, 187, 187);
+  /* padding: 3px; */
+  width: 30%;
+  text-align: left;
+  padding-left: 10px;
+  font-weight: 600;
+  font-size: 12px;
+}
+.tableitemTDAmount {
+  border-collapse: collapse;
+  border: 1px solid rgb(187, 187, 187);
+  /* padding: 3px; */
+  width: auto;
+  text-align: left;
+  padding-left: 10px;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.borderTable .tableitem {
+  /* border: 1px solid #000; */
+}
+
+.signature {
+  width: 100%;
+  margin: 5px auto;
+}
+.signature tr {
+  padding: 5px 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.signature th {
+  width: 50%;
+}
+
+.rightSignArea {
+  margin: 0 auto;
+  max-width: 200px;
+}
+
+.rightSignArea hr {
+  margin: 35px 0 2px;
+}
+
+.rightSignArea span {
+  font-size: 12px;
+}
+
+.rightSignArea h5 {
+  margin: 8px 0 0;
+  font-size: 16px;
+}
+
+.btn {
+  width: 20%;
+  background: var(--text-color2);
+  color: var(--primary-bg);
+  font-size: 16px;
+  font-weight: 500;
+  padding: 10px 25px;
+  margin: 0.5rem 0;
+  border: none;
+  border-radius: 18px;
+  cursor: pointer;
+}
+
+.btnstyle {
+  display: flex;
+  justify-content: center;
+}
+
+.billingnumber {
+  font-size: 10px;
+  font-weight: 700;
+  margin-left: 5px;
+}
