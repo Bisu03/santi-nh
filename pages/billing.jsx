@@ -384,7 +384,7 @@ const billing = () => {
           patientSummary,
           admissionSummary,
           billingStatus,
-          dateOfDeparture,
+          dateOfDeparture: patientDetails.dateOfDeparture,
           total,
         })
         .then(({ data }) => {
@@ -1282,8 +1282,12 @@ const billing = () => {
                 type="date"
                 name="dateOfDeparture"
                 value={patientDetails?.dateOfDeparture}
-                readOnly
-                placeholder="Guardian Contact No. "
+                onChange={(e) =>
+                  setPatientDetails({
+                    ...patientDetails,
+                    dateOfDeparture: e.target.value,
+                  })
+                }
                 className="input input-bordered border-black w-8/12"
               />
             </label>
@@ -1291,7 +1295,6 @@ const billing = () => {
         </div>
       </div>
 
-      
       <div className="btn btn-block rounded-none cursor-default text-lg ">
         Total Cost
       </div>

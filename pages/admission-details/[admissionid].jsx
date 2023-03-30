@@ -5,7 +5,7 @@ import axios from "axios";
 import { useEffect, useState, useRef, useCallback, forwardRef } from "react";
 import { useRouter } from "next/router";
 import { useReactToPrint } from "react-to-print";
-import Loding from "../../components/LodingScreen";
+import Loading from "../../components/LodingScreen";
 import { useSession } from "next-auth/react";
 import Alldetails from "../../dummydata/Alldata";
 
@@ -15,7 +15,7 @@ const AdmissionDetails = () => {
   const { data: session, status } = useSession();
   const [admissionData, setAdmissionData] = useState({});
   const [amountWord, setAmountWord] = useState("");
-  const [loding, setLoding] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [printLoding, setPrintLoding] = useState(false);
 
   useEffect(() => {
@@ -25,17 +25,17 @@ const AdmissionDetails = () => {
   }, [admissionid, amountWord]);
 
   const fetchDetailsByAdmissionID = () => {
-    setLoding(true);
+    setLoading(true);
     axios
       .get(`/api/admission-details/${admissionid}`)
       .then(({ data }) => {
         console.log(data);
         setAdmissionData(data);
-        setLoding(false);
+        setLoading(false);
       })
       .catch((err) => {
         console.error(err);
-        setLoding(false);
+        setLoading(false);
       });
   };
 
@@ -141,10 +141,10 @@ const AdmissionDetails = () => {
     removeAfterPrint: true,
   });
 
-  if (loding) {
+  if (loading) {
     return (
       <>
-        <Loding />{" "}
+        <Loading />{" "}
       </>
     );
   }
