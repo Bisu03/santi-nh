@@ -18,12 +18,6 @@ const AdmissionDetails = () => {
   const [loading, setLoading] = useState(false);
   const [printLoding, setPrintLoding] = useState(false);
 
-  useEffect(() => {
-    fetchDetailsByAdmissionID();
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [admissionid, amountWord]);
-
   const fetchDetailsByAdmissionID = () => {
     setLoading(true);
     axios
@@ -38,6 +32,12 @@ const AdmissionDetails = () => {
         setLoading(false);
       });
   };
+
+  useEffect(() => {
+    fetchDetailsByAdmissionID();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [admissionid, amountWord]);
 
   useEffect(() => {
     if (admissionData) {

@@ -1,5 +1,6 @@
 import { getSession } from "next-auth/react";
 import Admission from "../../../models/Admission";
+import AdmissionBilling from "../../../models/AdmissionBilling";
 import connectDB from "../../../lib/connectDb";
 connectDB();
 
@@ -13,26 +14,24 @@ export default async (req, res) => {
         isDeleted: false,
       }).populate({
         path: "patient",
-      })
-
-      console.log(req.query.admissionid);
+      });
 
       let admission;
 
-      if (admissionData?.billingDone === true) {
+      if (admissionData?.billingDone) {
         admission = await Admission.findOne({
           admissionId: req.query.admissionid,
           isDeleted: false,
-        }).populate({
-          path: "patient",
-        }).populate({
-          path: "billing",
         })
+          .populate({
+            path: "patient",
+          })
+          .populate({
+            path: "billing",
+          });
       } else {
         admission = admissionData;
       }
-      console.log(admissionData?.billingDone);
-      console.log(admissionData);
       return res.status(200).json(admission);
     } else {
       return res.status(401).json({ message: "Unauthorized" });
