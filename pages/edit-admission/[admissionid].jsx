@@ -107,30 +107,30 @@ const EditAdmission = () => {
     if (admissionData.billingDone) {
       let totalCharge = medicineCharges?.total || 0;
 
-      totalCharge += parseInt(diagnosticCharges.total) || 0;
-      totalCharge += parseInt(serviceCharge.total) || 0;
-      totalCharge += parseInt(accomodation.total) || 0;
-      totalCharge += parseInt(anotheraccomodation.total) || 0;
-      totalCharge += parseInt(doctor.total) || 0;
-      totalCharge += parseInt(nursingCharge.total) || 0;
+      totalCharge += parseInt(diagnosticCharges?.total) || 0;
+      totalCharge += parseInt(serviceCharge?.total) || 0;
+      totalCharge += parseInt(accomodation?.total) || 0;
+      totalCharge += parseInt(anotheraccomodation?.total) || 0;
+      totalCharge += parseInt(doctor?.total) || 0;
+      totalCharge += parseInt(nursingCharge?.total) || 0;
       // totalCharge += parseInt(medicineCharges.total) || 0;
-      totalCharge += parseInt(otDetails.total) || 0;
+      totalCharge += parseInt(otDetails?.total) || 0;
       totalCharge += parseInt(otMedicines?.total) || 0;
       // totalCharge += parseInt(dischargeMedicines.total) || 0;
-      totalCharge += parseInt(specialNeeds.total) || 0;
+      totalCharge += parseInt(specialNeeds?.total) || 0;
       totalCharge += parseInt(ambulationCharge) || 0;
 
       let totalLocal = { ...total };
       let payableAmount = totalCharge,
         netPayableAmount;
 
-      payableAmount -= parseInt(totalLocal.discount) || 0;
-      payableAmount -= parseInt(totalLocal.advancePaid) || 0;
-      payableAmount -= parseInt(totalLocal.roundOff) || 0;
+      payableAmount -= parseInt(totalLocal?.discount) || 0;
+      payableAmount -= parseInt(totalLocal?.advancePaid) || 0;
+      payableAmount -= parseInt(totalLocal?.roundOff) || 0;
 
-      netPayableAmount = payableAmount + (parseInt(totalLocal.cgst) || 0);
-      netPayableAmount += parseInt(totalLocal.sgst) || 0;
-      netPayableAmount += parseInt(totalLocal.tds) || 0;
+      netPayableAmount = payableAmount + (parseInt(totalLocal?.cgst) || 0);
+      netPayableAmount += parseInt(totalLocal?.sgst) || 0;
+      netPayableAmount += parseInt(totalLocal?.tds) || 0;
 
       setTotal({
         ...total,
@@ -167,13 +167,13 @@ const EditAdmission = () => {
     let payableAmount = totalLocal.totalCharge,
       netPayableAmount;
 
-    payableAmount -= parseInt(totalLocal.discount) || 0;
-    payableAmount -= parseInt(totalLocal.advancePaid) || 0;
-    payableAmount -= parseInt(totalLocal.roundOff) || 0;
+    payableAmount -= parseInt(totalLocal?.discount) || 0;
+    payableAmount -= parseInt(totalLocal?.advancePaid) || 0;
+    payableAmount -= parseInt(totalLocal?.roundOff) || 0;
 
-    netPayableAmount = payableAmount + (parseInt(totalLocal.cgst) || 0);
-    netPayableAmount += parseInt(totalLocal.sgst) || 0;
-    netPayableAmount += parseInt(totalLocal.tds) || 0;
+    netPayableAmount = payableAmount + (parseInt(totalLocal?.cgst) || 0);
+    netPayableAmount += parseInt(totalLocal?.sgst) || 0;
+    netPayableAmount += parseInt(totalLocal?.tds) || 0;
 
     setTotal({
       ...total,
@@ -709,7 +709,7 @@ const EditAdmission = () => {
                   <input
                     type="text"
                     name="anotherBed"
-                    value={anotheraccomodation.anotherBed}
+                    value={anotheraccomodation?.anotherBed}
                     onChange={calculate2ndBedcharge}
                     className="input input-bordered border-black w-[400px]"
                   />
@@ -828,7 +828,7 @@ const EditAdmission = () => {
                   <input
                     type="number"
                     name="numberofdays"
-                    value={serviceCharge.numberofdays}
+                    value={serviceCharge?.numberofdays}
                     onChange={handleService}
                     className="input input-bordered border-black  w-[400px]"
                   />
@@ -841,7 +841,7 @@ const EditAdmission = () => {
                   <input
                     type="number"
                     name="total"
-                    value={serviceCharge.total}
+                    value={serviceCharge?.total}
                     onChange={handleService}
                     className="input input-bordered border-black  w-[400px]"
                   />

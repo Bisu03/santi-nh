@@ -155,11 +155,17 @@ const patientrecord = () => {
                               Add Medicine
                             </a>
                           </li>
-                          <button
-                            className={`btn ${deleteLoding ? "loading" : ""} `}
-                            onClick={() => handleDelete(patient?.admissionId)}>
-                            Delete
-                          </button>
+                          {session?.user?.isSuperAdmin && (
+                            <button
+                              className={`btn ${
+                                deleteLoding ? "loading" : ""
+                              } `}
+                              onClick={() =>
+                                handleDelete(patient?.admissionId)
+                              }>
+                              Delete
+                            </button>
+                          )}
                         </ul>
                       </div>
                     </td>

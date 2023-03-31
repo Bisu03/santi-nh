@@ -42,9 +42,9 @@ const Navbar = () => {
               <li>
                 <Link href="/admitpatient">Admit Patient</Link>
               </li>
-              <li>
+              {/* <li>
                 <Link href="/billing">Billing</Link>
-              </li>
+              </li> */}
               <li>
                 <Link href="/addmedicine">Add Medicine</Link>
               </li>
@@ -52,7 +52,9 @@ const Navbar = () => {
                 <Link href="/medicinelist">Medicine List</Link>
               </li>
               <li>
-                <button onClick={handleLogout} className="btn btn-warning text-base-100 ">
+                <button
+                  onClick={handleLogout}
+                  className="btn btn-warning text-base-100 ">
                   log out
                 </button>
               </li>

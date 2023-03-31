@@ -32,7 +32,7 @@ const Doctorinputes = ({ doctor, setDoctorData }) => {
     setDoctorData({
       ...doctor,
       items: [
-        ...doctor.items,
+        ...doctor?.items,
         {
           doctorname: "",
           numberofvisit: "",

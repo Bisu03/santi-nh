@@ -24,7 +24,7 @@ const admissionSchema = new mongoose.Schema(
     dateOfAdmission: { type: String },
     dateOfDeparture: { type: String },
     billingDone: { type: Boolean, default: false },
-    billingStatus: { type: String },
+    billingStatus: { type: String, default: "Pending" },
     paymentDone: { type: Boolean, default: false },
     isDeleted: { type: Boolean, default: false },
   },

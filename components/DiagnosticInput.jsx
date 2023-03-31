@@ -5,6 +5,7 @@ const DiagnosticInput = ({ diagData, setDiagData }) => {
     const { name, value } = e.target;
     const list = [...diagData.items];
     list[index][name] = value;
+    list[index].total = list[index].cost;
     let total = calculateTotal(list);
     setDiagData({ items: list, total });
   };

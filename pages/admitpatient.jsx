@@ -26,6 +26,44 @@ const admitpatient = () => {
   };
 
   const [formdata, setFormdata] = useState(initialFormdata);
+
+  const [specialNeeds, setSpecialNeeds] = useState({
+    items: [
+      {
+        itemName: "",
+        hourPerDay: "",
+        ratePerHour: "",
+        total: "",
+      },
+    ],
+    total: "",
+  });
+
+  const [doctor, setDoctor] = useState({
+    items: [
+      {
+        doctorname: "",
+        numberofvisit: "",
+        chargepervisit: "",
+        total: "",
+      },
+    ],
+    total: "",
+  });
+
+  const [diagnosticCharges, setDiagnosticCharges] = useState({
+    items: [
+      {
+        testName: "",
+        testDetails: "",
+        cost: "",
+        drReferral: "",
+        total: "",
+      },
+    ],
+    total: "",
+  });
+
   const [loding, setLoding] = useState(false);
 
   useEffect(() => {
@@ -52,8 +90,45 @@ const admitpatient = () => {
     }
     setLoding(true);
 
+    const {
+      fullname,
+      patientId,
+      admissionId,
+      gender,
+      age,
+      contactNo,
+      aadharNo,
+      address,
+      drrefferal,
+      admissiontype,
+      guardianName,
+      guardianContactNo,
+      medicalCase,
+      dateOfAdmission,
+      admissioncharge,
+    } = formdata;
+
     try {
-      const { data } = await axios.post("/api/admit-patient", formdata);
+      const { data } = await axios.post("/api/admit-patient", {
+        fullname,
+        patientId,
+        admissionId,
+        gender,
+        age,
+        contactNo,
+        aadharNo,
+        address,
+        drrefferal,
+        admissiontype,
+        guardianName,
+        guardianContactNo,
+        medicalCase,
+        dateOfAdmission,
+        admissioncharge,
+        specialNeeds,
+        doctor,
+        diagnosticCharges,
+      });
       setFormdata(initialFormdata);
       setLoding(false);
       Router.push("/patientrecord");
