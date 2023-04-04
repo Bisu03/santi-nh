@@ -8,6 +8,7 @@ import LodingScreen from "../components/LodingScreen";
 import { toast } from "react-toastify";
 
 const patientrecord = () => {
+  const { session, status } = useSession();
   const [searchQuery, setSearchQuery] = useState("");
   const [loading, setLoading] = useState(false);
   const [fetchData, setFetchData] = useState([]);
