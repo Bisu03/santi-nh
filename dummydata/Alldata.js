@@ -6,9 +6,9 @@ const Alldetails = {
   pin: "721636",
   doctorName: "Anup Samanta",
   licencenumber: "",
-  NHimage: "",
-  logo: "",
-  sidelogo: "",
+  NHimage: "/logo.png",
+  logo: "/logo.png",
+  sidelogo: "/logo.png",
   url: "www.sunrise.com",
 };
 
