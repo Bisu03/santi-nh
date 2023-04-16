@@ -86,7 +86,7 @@ const customerrecord = () => {
                     <td>{data?.gender}</td>
                     <td>{data?.medicalCase}</td>
                     <td>
-                      {data?.billingStatus === "Done" ? (
+                      {data?.billingStatus ? (
                         <div className="badge badge-success gap-2">Done</div>
                       ) : (
                         <div className="badge badge-warning gap-2">Pending</div>
