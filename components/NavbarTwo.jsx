@@ -2,7 +2,7 @@ import Link from "next/link";
 import React from "react";
 import { signOut } from "next-auth/react";
 
-const Navbar = () => {
+const NavbarTwo = () => {
   const handleLogout = () => {
     signOut();
   };
@@ -34,25 +34,16 @@ const Navbar = () => {
               </li>
 
               {/* <li>
-                <a>All Appoinment</a>
-              </li> */}
-              <li>
-                <Link href="/patientrecord">Patient Record</Link>
-              </li>
-              <li>
-                <Link href="/admitpatient">Admit Patient</Link>
-              </li>
-              {/* <li>
                 <Link href="/billing">Billing</Link>
               </li> */}
               <li>
-                <Link href="/addmedicine">Add Medicine</Link>
+                <Link href="/addcustomer">Add Customer</Link>
               </li>
               <li>
                 <Link href="/medicinelist">Medicine List</Link>
               </li>
               <li>
-                <Link href="/customerrecord">Medicine Billing</Link>
+                <Link href="/customerrecord">Customer Records</Link>
               </li>
               <li>
                 <button
@@ -92,4 +83,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default NavbarTwo;
