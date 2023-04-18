@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import DiagnosticData from "../dummydata/DiagnosticData";
 
 const DiagnosticInput = ({ diagData, setDiagData }) => {
   const handleChange = (e, index) => {
@@ -77,10 +78,12 @@ const DiagnosticInput = ({ diagData, setDiagData }) => {
                         onChange={(e) => handleChange(e, index)}
                         name="testName"
                         className="input input-bordered border-black  w-[400px] text-xl ">
-                        <option selected>Select</option>
-                        <option value="General">General</option>
-                        <option value="Female">Female</option>
-                        <option value="Others"> Others</option>
+                        <option>Select</option>
+                        {DiagnosticData.map((nameOfTest) => (
+                          <option value={nameOfTest} key={nameOfTest}>
+                            {nameOfTest}
+                          </option>
+                        ))}
                       </select>
                     </label>
                   </div>

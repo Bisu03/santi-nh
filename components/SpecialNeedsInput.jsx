@@ -1,4 +1,5 @@
 import React from "react";
+import PricingData from "../dummydata/PricingData";
 
 const SpecialNeedsInput = ({ itemData, setItemData }) => {
   const handleChange = (e, index) => {
@@ -76,10 +77,14 @@ const SpecialNeedsInput = ({ itemData, setItemData }) => {
                       value={item.itemName}
                       onChange={(e) => handleChange(e, index)}
                       className="input input-bordered border-black  w-[400px] text-xl ">
-                      <option selected>Select</option>
-                      <option value="General">General</option>
-                      <option value="Female">Female</option>
-                      <option value="Others"> Others</option>
+                      <option>Select</option>
+                      {PricingData.map((specialItems) => (
+                        <option
+                          value={specialItems.item}
+                          key={specialItems.item}>
+                          {specialItems.item}
+                        </option>
+                      ))}
                     </select>
                   </label>
                 </div>

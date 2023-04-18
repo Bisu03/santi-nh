@@ -23,7 +23,16 @@ const EditAdmission = () => {
   const [doctor, setDoctor] = useState({});
   const [nursingCharge, setNursingCharge] = useState({});
   const [medicineCharges, setMedicineCharges] = useState({});
-  const [otDetails, setOtDetails] = useState({});
+  const [otDetails, setOtDetails] = useState({
+    typeOfOt: "select",
+    surgeonName: "",
+    surgeonCharge: "",
+    anaesthetistName: "",
+    anaesthesiaCharge: "",
+    otRoomCharge: "",
+    extraCharge: "",
+    total: "",
+  });
   const [otMedicines, setOtMedicines] = useState({});
   const [taxDetails, setTaxDetails] = useState({});
   const [dischargeMedicines, setDischargeMedicines] = useState({});
@@ -155,6 +164,8 @@ const EditAdmission = () => {
     ambulationCharge,
   ]);
 
+  console.log(otDetails);
+
   const handlePatientDetailsChange = (e) => {
     let { name, value } = e.target;
     setPatientDetails({ ...patientDetails, [name]: value });
@@ -251,11 +262,11 @@ const EditAdmission = () => {
 
   const handleOtDetailsChange = (e) => {
     let { name, value, type } = e.target;
+    // console.log(type);
 
     if (type === "number") {
       value = parseInt(value);
-      let totalOTCharge =
-        otDetails.total - (parseInt(otDetails[name]) || 0) + (value || 0);
+      let totalOTCharge = (parseInt(otDetails[name]) || 0) + (value || 0);
       setOtDetails({ ...otDetails, [name]: value, total: totalOTCharge });
     } else {
       setOtDetails({ ...otDetails, [name]: value });
@@ -613,9 +624,14 @@ const EditAdmission = () => {
                 <label className="input-group">
                   <span className="w-60  uppercase font-bold ">Bed type</span>
                   <select
-                    name="bedType"
+                    name="bed-type"
                     value={accomodation?.bedType}
-                    onChange={handlebedCharge}
+                    onChange={(e) =>
+                      setAccomodation({
+                        ...accomodation,
+                        bedType: e.target.value,
+                      })
+                    }
                     className="input input-bordered border-black  w-[400px] text-xl ">
                     <option>Select Bed type</option>
                     <option value="ICCU">ICCU</option>
@@ -1011,7 +1027,7 @@ const EditAdmission = () => {
                     value={otDetails?.typeOfOt}
                     onChange={handleOtDetailsChange}
                     className="input input-bordered border-black  w-[400px] text-xl ">
-                    <option>Select type</option>
+                    <option value="">Select type</option>
                     <option value="major">Major</option>
                     <option value="minor">Minor</option>
                   </select>
@@ -1108,6 +1124,7 @@ const EditAdmission = () => {
                     type="number"
                     name="total"
                     value={otDetails?.total}
+                    onChange={handleOtDetailsChange}
                     className="input input-bordered border-black  w-[400px]"
                   />
                 </label>
