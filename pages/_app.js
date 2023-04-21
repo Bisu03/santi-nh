@@ -46,6 +46,7 @@ function AdminRoute({ children }) {
   const { data: session, status } = useSession();
   const isUser = !!session?.user;
 
+
   useEffect(() => {
     if (status === "loading") return; // Do nothing while loading
     if (!isUser) Router.push("/"); // If not authenticated, force log in

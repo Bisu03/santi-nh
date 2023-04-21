@@ -8,7 +8,7 @@ import LodingScreen from "../components/LodingScreen";
 import { toast } from "react-toastify";
 
 const patientrecord = () => {
-  const { session, status } = useSession();
+  const { data: session, status } = useSession();
   const [searchQuery, setSearchQuery] = useState("");
   const [loading, setLoading] = useState(false);
   const [fetchData, setFetchData] = useState([]);
@@ -21,7 +21,7 @@ const patientrecord = () => {
         "/api/patient-records?search=" + searchQuery
       );
       setLoading(false);
-      console.log(data);
+      // console.log(data);
       setFetchData(data);
     } catch (error) {
       setLoading(false);
@@ -156,7 +156,7 @@ const patientrecord = () => {
                               Add Medicine
                             </a>
                           </li>
-                          {session?.user?.isSuperAdmin && (
+                          {session?.user?.isSuperAdmin ? (
                             <button
                               className={`btn ${
                                 deleteLoding ? "loading" : ""
@@ -166,7 +166,7 @@ const patientrecord = () => {
                               }>
                               Delete
                             </button>
-                          )}
+                          ) : undefined}
                         </ul>
                       </div>
                     </td>
