@@ -51,6 +51,9 @@ const Navbar = () => {
               <li>
                 <Link href="/medicinelist">Medicine List</Link>
               </li>
+              {/* <li>
+                <Link href="/medicinestockout">Medicine Stocks Out</Link>
+              </li> */}
               <li>
                 <Link href="/customerrecord">Medicine Billing</Link>
               </li>

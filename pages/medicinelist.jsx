@@ -152,4 +152,5 @@ const medicinelist = () => {
   );
 };
 
+medicinelist.adminRoute = true;
 export default medicinelist;
