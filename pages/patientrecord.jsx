@@ -156,6 +156,13 @@ const patientrecord = () => {
                               Add Medicine
                             </a>
                           </li>
+                          <li>
+                            <a
+                              target="_blank"
+                              href={`/allfilesupload/${patient?._id}`}>
+                              File Upload
+                            </a>
+                          </li>
                           {session?.user?.isSuperAdmin ? (
                             <button
                               className={`btn ${
