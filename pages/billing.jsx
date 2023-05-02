@@ -1403,4 +1403,5 @@ const billing = () => {
   );
 };
 
+ billing.adminRoute = true;
 export default billing;

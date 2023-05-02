@@ -206,4 +206,5 @@ const addmedicine = () => {
   );
 };
 
+addmedicine.adminRoute = true;
 export default addmedicine;
