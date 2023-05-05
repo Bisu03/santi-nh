@@ -96,7 +96,7 @@ const EditAdmission = () => {
             }
           );
           setMedicineCharges(data?.billing?.medicineCharges);
-          setOtDetails(data?.billing?.otCharge);
+          setOtDetails(data?.billing?.otCharge || {});
           setOtMedicines(data?.billing?.otMedicines);
           setTaxDetails(data?.billing?.taxDetails);
           setDischargeMedicines(data?.billing?.dischargeMedicines);
@@ -278,7 +278,8 @@ const EditAdmission = () => {
 
     if (type === "number") {
       value = parseInt(value);
-      let totalOTCharge = (parseInt(otDetails[name]) || 0) + (value || 0);
+      let totalOTCharge =
+        otDetails.total - (parseInt(otDetails[name]) || 0) + (value || 0);
       setOtDetails({ ...otDetails, [name]: value, total: totalOTCharge });
     } else {
       setOtDetails({ ...otDetails, [name]: value });
