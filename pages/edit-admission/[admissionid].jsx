@@ -21,7 +21,12 @@ const EditAdmission = () => {
   const [diagnosticCharges, setDiagnosticCharges] = useState({});
   const [serviceCharge, setServiceCharge] = useState({});
   const [doctor, setDoctor] = useState({});
-  const [nursingCharge, setNursingCharge] = useState({});
+  const [nursingCharge, setNursingCharge] = useState({
+    general: { days: "", feesPerDay: "", total: "" },
+    specialCare: { days: "", feesPerDay: "", total: "" },
+    aaya: { days: "", feesPerDay: "", total: "" },
+    total: "",
+  });
   const [medicineCharges, setMedicineCharges] = useState({});
   const [otDetails, setOtDetails] = useState({
     typeOfOt: "select",
@@ -36,7 +41,7 @@ const EditAdmission = () => {
   const [otMedicines, setOtMedicines] = useState({});
   const [taxDetails, setTaxDetails] = useState({});
   const [dischargeMedicines, setDischargeMedicines] = useState({});
-  const [specialNeeds, setSpecialNeeds] = useState([]);
+  const [specialNeeds, setSpecialNeeds] = useState({});
   const [ambulationCharge, setAmbulationCharge] = useState("");
   const [patientSummary, setPatientSummary] = useState({});
   const [admissionSummary, setAdmissionSummary] = useState({});
@@ -82,13 +87,20 @@ const EditAdmission = () => {
           setDiagnosticCharges(data?.billing?.diagnosticCharges);
           setServiceCharge(data?.billing?.serviceCharge);
           setDoctor(data?.billing?.doctor);
-          setNursingCharge(data?.billing?.nursingCharge);
+          setNursingCharge(
+            data?.billing?.nursingCharge || {
+              general: { days: "", feesPerDay: "", total: "" },
+              specialCare: { days: "", feesPerDay: "", total: "" },
+              aaya: { days: "", feesPerDay: "", total: "" },
+              total: "",
+            }
+          );
           setMedicineCharges(data?.billing?.medicineCharges);
           setOtDetails(data?.billing?.otCharge);
           setOtMedicines(data?.billing?.otMedicines);
           setTaxDetails(data?.billing?.taxDetails);
           setDischargeMedicines(data?.billing?.dischargeMedicines);
-          setSpecialNeeds(data?.billing?.specialNeeds);
+          setSpecialNeeds(data?.billing?.specialNeeds || {});
           setAmbulationCharge(data?.billing?.ambulationCharge);
           setPatientSummary(data?.billing?.patientSummary);
           setAdmissionSummary(data?.billing?.admissionSummary);
