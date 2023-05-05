@@ -484,6 +484,7 @@ const EditAdmission = () => {
                 <option>Select Bed type</option>
                 <option value="Hindu">Hindu</option>
                 <option value="Islam">Islam</option>
+                <option value="Christian">Christian</option>
               </select>
             </label>
           </div>
