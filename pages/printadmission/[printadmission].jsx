@@ -137,6 +137,14 @@ const Printadmission = () => {
                   </tr>
                   <tr>
                     <th className={admissionDetailsStyles.patientdetailR}>
+                      Religion
+                    </th>
+                    <td className={admissionDetailsStyles.patientdetailR}>
+                      {admissionData?.religion}
+                    </td>
+                  </tr>
+                  <tr>
+                    <th className={admissionDetailsStyles.patientdetailR}>
                       Contact No
                     </th>
                     <td className={admissionDetailsStyles.patientdetailR}>
@@ -440,6 +448,14 @@ const Printadmission = () => {
                   </tr>
                   <tr>
                     <th className={admissionDetailsStyles.patientdetailR}>
+                      Religion
+                    </th>
+                    <td className={admissionDetailsStyles.patientdetailR}>
+                      {admissionData?.religion}
+                    </td>
+                  </tr>
+                  <tr>
+                    <th className={admissionDetailsStyles.patientdetailR}>
                       Contact No
                     </th>
                     <td className={admissionDetailsStyles.patientdetailR}>
@@ -493,7 +509,7 @@ const Printadmission = () => {
                   {admissionData?.medicalCase && (
                     <tr>
                       <th className={admissionDetailsStyles.patientdetailR}>
-                      Disease
+                        Disease
                       </th>
                       <td className={admissionDetailsStyles.patientdetailR}>
                         {admissionData?.medicalCase}

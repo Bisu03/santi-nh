@@ -13,6 +13,7 @@ const admitpatient = () => {
     admissionId: generatePatientAdmissionId(),
     gender: "select",
     age: "",
+    religion: "",
     contactNo: "",
     aadharNo: "",
     address: "",
@@ -73,7 +74,6 @@ const admitpatient = () => {
     total: "",
   });
 
-
   const [loding, setLoding] = useState(false);
 
   useEffect(() => {
@@ -110,6 +110,7 @@ const admitpatient = () => {
       aadharNo,
       address,
       drrefferal,
+      religion,
       admissiontype,
       guardianName,
       guardianContactNo,
@@ -134,6 +135,7 @@ const admitpatient = () => {
         guardianName,
         guardianContactNo,
         medicalCase,
+        religion,
         dateOfAdmission,
         admissioncharge,
         specialNeeds,
@@ -201,6 +203,21 @@ const admitpatient = () => {
                 placeholder="Enter Age "
                 className="input input-bordered border-black w-80"
               />
+            </label>
+          </div>
+
+          <div className="form-control mt-4 ">
+            <label className="input-group">
+              <span className="w-60  uppercase font-bold ">Religion</span>
+              <select
+                name="religion"
+                value={formdata?.religion}
+                onChange={handleChange}
+                className="input input-bordered border-black  w-80 text-xl ">
+                <option>Select Bed type</option>
+                <option value="Hindu">Hindu</option>
+                <option value="Islam">Islam</option>
+              </select>
             </label>
           </div>
 
@@ -301,6 +318,10 @@ const admitpatient = () => {
                 className="input input-bordered border-black w-80 text-xl ">
                 <option>Select</option>
                 <option value="General">General</option>
+                <option value="General Surgery">General Surgery</option>
+                <option value="General Medicine">General Medicine</option>
+                <option value="General Ortho">General Ortho</option>
+                <option value="General ENT">General ENT</option>
                 <option value="Swastha Swathi">Swastha Swathi</option>
                 <option value="Cashless">Cashless</option>
               </select>
@@ -387,6 +408,7 @@ const admitpatient = () => {
                 <option value="NICU">NICU</option>
                 <option value="PICU">PICU</option>
                 <option value="SNCU">SNCU</option>
+                <option value="Dialysis">Dialysis</option>
                 <option value="General cabin">General cabin</option>
                 <option value="Delux cabin">Delux cabin</option>
                 <option value="Double bed D.cabin">Double bed D.cabin</option>

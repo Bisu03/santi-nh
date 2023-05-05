@@ -238,6 +238,14 @@ const AdmissionDetails = () => {
                 </tr>
                 <tr>
                   <th className={admissionDetailsStyles.patientdetailR}>
+                    Religion
+                  </th>
+                  <td className={admissionDetailsStyles.patientdetailR}>
+                    {admissionData?.religion}
+                  </td>
+                </tr>
+                <tr>
+                  <th className={admissionDetailsStyles.patientdetailR}>
                     Contact No
                   </th>
                   <td className={admissionDetailsStyles.patientdetailR}>

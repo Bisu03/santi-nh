@@ -136,6 +136,14 @@ const advancebill = () => {
                     </td>
                   </tr>
                   <tr>
+                  <th className={admissionDetailsStyles.patientdetailR}>
+                    Religion
+                  </th>
+                  <td className={admissionDetailsStyles.patientdetailR}>
+                    {admissionData?.religion}
+                  </td>
+                </tr>
+                  <tr>
                     <th className={admissionDetailsStyles.patientdetailR}>
                       Contact No
                     </th>
@@ -438,6 +446,14 @@ const advancebill = () => {
                       {admissionData?.age}
                     </td>
                   </tr>
+                  <tr>
+                  <th className={admissionDetailsStyles.patientdetailR}>
+                    Religion
+                  </th>
+                  <td className={admissionDetailsStyles.patientdetailR}>
+                    {admissionData?.religion}
+                  </td>
+                </tr>
                   <tr>
                     <th className={admissionDetailsStyles.patientdetailR}>
                       Contact No

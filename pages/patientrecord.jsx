@@ -94,6 +94,7 @@ const patientrecord = () => {
                 <th>Gender</th>
                 <th>Disease</th>
                 <th>Doctor Name</th>
+                <th>Bed Type</th>
                 <th>Bed Number</th>
                 <th>Admission Type</th>
                 <th>Billing Status</th>
@@ -110,6 +111,7 @@ const patientrecord = () => {
                     <td>{patient?.patient?.gender}</td>
                     <td>{patient?.medicalCase}</td>
                     <td>{patient?.drrefferal}</td>
+                    <td>{patient?.bedtype}</td>
                     <td>{patient?.bedno}</td>
                     <td>{patient?.admissiontype}</td>
                     <td>

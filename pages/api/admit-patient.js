@@ -18,6 +18,7 @@ export default async (req, res) => {
         contactNo,
         aadharNo,
         address,
+        religion,
         guardianName,
         guardianContactNo,
         medicalCase,
@@ -46,6 +47,7 @@ export default async (req, res) => {
           admissionId,
           patient: newPatient._id,
           age,
+          religion,
           guardianName,
           guardianContactNo,
           drrefferal,
@@ -55,6 +57,7 @@ export default async (req, res) => {
           admissioncharge,
           advance,
           bedno: accomodation.bedNo,
+          bedtype: accomodation.bedType,
         });
 
         const billing = await AdmissionBilling.create({
