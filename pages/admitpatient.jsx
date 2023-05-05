@@ -64,8 +64,6 @@ const admitpatient = () => {
     total: "",
   });
 
-  
-
   const [loding, setLoding] = useState(false);
 
   useEffect(() => {
@@ -342,6 +340,23 @@ const admitpatient = () => {
               />
             </label>
           </div>
+
+          <div className="form-control mt-4">
+            <label className="input-group">
+              <span className="w-60  uppercase font-bold">
+                Advance{" "}
+              </span>
+              <input
+                type="text"
+                name="advance"
+                // value={formdata.advance}
+                // onChange={handleChange}
+                placeholder="Advance Payment"
+                className="input input-bordered border-black w-80 "
+              />
+            </label>
+          </div>
+
           <div className="flex justify-center mt-5  ">
             <button
               onClick={handleOnsubmit}
