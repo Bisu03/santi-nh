@@ -21,7 +21,7 @@ const patientrecord = () => {
         "/api/patient-records?search=" + searchQuery
       );
       setLoading(false);
-      // console.log(data);
+      console.log(data);
       setFetchData(data);
     } catch (error) {
       setLoading(false);
@@ -92,7 +92,10 @@ const patientrecord = () => {
                 <th>Admission Id</th>
                 <th>name</th>
                 <th>Gender</th>
-                <th>Medical Case</th>
+                <th>Disease</th>
+                <th>Doctor Name</th>
+                <th>Bed Number</th>
+                <th>Admission Type</th>
                 <th>Billing Status</th>
                 <th>Action</th>
               </tr>
@@ -106,6 +109,9 @@ const patientrecord = () => {
                     <td>{patient?.patient?.fullname}</td>
                     <td>{patient?.patient?.gender}</td>
                     <td>{patient?.medicalCase}</td>
+                    <td>{patient?.drrefferal}</td>
+                    <td>{patient?.accommodationDetails?.bedNo}</td>
+                    <td>{patient?.admissiontype}</td>
                     <td>
                       {patient?.billingStatus === "Done" ? (
                         <div className="badge badge-success gap-2">Done</div>
@@ -138,10 +144,17 @@ const patientrecord = () => {
                           <li>
                             <a
                               target="_blank"
+                              href={`/advancebill/${patient?.admissionId}`}>
+                              Advance Bill
+                            </a>
+                          </li>
+                          {/* <li>
+                            <a
+                              target="_blank"
                               href={`/medicinebill/${patient?.admissionId}`}>
                               Medicine bill
                             </a>
-                          </li>
+                          </li> */}
                           <li>
                             <a
                               target="_blank"
@@ -149,13 +162,13 @@ const patientrecord = () => {
                               Update Record
                             </a>
                           </li>
-                          <li>
+                          {/* <li>
                             <a
                               target="_blank"
                               href={`/addmedicinetopatient/${patient?.admissionId}`}>
                               Add Medicine
                             </a>
-                          </li>
+                          </li> */}
                           <li>
                             <a
                               target="_blank"

@@ -45,18 +45,18 @@ const Navbar = () => {
               {/* <li>
                 <Link href="/billing">Billing</Link>
               </li> */}
-              <li>
+              {/* <li>
                 <Link href="/addmedicine">Add Medicine</Link>
               </li>
               <li>
                 <Link href="/medicinelist">Medicine List</Link>
               </li>
-              {/* <li>
+         <li>
                 <Link href="/medicinestockout">Medicine Stocks Out</Link>
-              </li> */}
+              </li> 
               <li>
                 <Link href="/customerrecord">Medicine Billing</Link>
-              </li>
+              </li> */}
               <li>
                 <button
                   onClick={handleLogout}

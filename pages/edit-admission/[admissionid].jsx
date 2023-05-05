@@ -36,7 +36,7 @@ const EditAdmission = () => {
   const [otMedicines, setOtMedicines] = useState({});
   const [taxDetails, setTaxDetails] = useState({});
   const [dischargeMedicines, setDischargeMedicines] = useState({});
-  const [specialNeeds, setSpecialNeeds] = useState({});
+  const [specialNeeds, setSpecialNeeds] = useState([]);
   const [ambulationCharge, setAmbulationCharge] = useState("");
   const [patientSummary, setPatientSummary] = useState({});
   const [admissionSummary, setAdmissionSummary] = useState({});
@@ -535,7 +535,7 @@ const EditAdmission = () => {
 
           <div className="form-control mt-4">
             <label className="input-group">
-              <span className="w-60  uppercase font-bold">Medical Case</span>
+              <span className="w-60  uppercase font-bold">DISEASE</span>
               <input
                 type="text"
                 name="medicalCase"
@@ -817,7 +817,7 @@ const EditAdmission = () => {
                     className="input input-bordered border-black  w-[400px] text-xl ">
                     <option>Select service type</option>
                     <option value="general">General</option>
-                    <option value="special">Special</option>
+                    <option value="ICCU">ICCU</option>
                   </select>
                 </label>
               </div>

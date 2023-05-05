@@ -108,6 +108,10 @@ const Pricing = [
     mrp: "RS. 1000/- PER DAY",
   },
   {
+    item: "ABG",
+    mrp: "RS. 1000/- PER DAY",
+  },
+  {
     item: "Others ",
     mrp: "RS. 1000/- PER DAY",
   },

@@ -493,7 +493,7 @@ const Printadmission = () => {
                   {admissionData?.medicalCase && (
                     <tr>
                       <th className={admissionDetailsStyles.patientdetailR}>
-                        Medical case
+                      Disease
                       </th>
                       <td className={admissionDetailsStyles.patientdetailR}>
                         {admissionData?.medicalCase}

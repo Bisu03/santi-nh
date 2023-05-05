@@ -280,7 +280,7 @@ const AdmissionDetails = () => {
                 </tr>
                 <tr>
                   <th className={admissionDetailsStyles.patientdetailR}>
-                    Medical Case
+                    Disease
                   </th>
                   <td className={admissionDetailsStyles.patientdetailR}>
                     {admissionData?.medicalCase}
@@ -296,16 +296,17 @@ const AdmissionDetails = () => {
                     </td>
                   </tr>
                 )}
-                {session?.user?.isSuperAdmin && (
+                {admissionData?.drrefferal && (
                   <tr>
                     <th className={admissionDetailsStyles.patientdetailR}>
-                      Doctor Refferal
+                      Doctor Name
                     </th>
                     <td className={admissionDetailsStyles.patientdetailR}>
                       {admissionData?.drrefferal}
                     </td>
                   </tr>
                 )}
+
                 <tr>
                   <th className={admissionDetailsStyles.patientdetailR}>
                     Billing

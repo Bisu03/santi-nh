@@ -64,6 +64,8 @@ const admitpatient = () => {
     total: "",
   });
 
+  
+
   const [loding, setLoding] = useState(false);
 
   useEffect(() => {
@@ -264,13 +266,13 @@ const admitpatient = () => {
 
           <div className="form-control mt-4">
             <label className="input-group">
-              <span className="w-60  uppercase font-bold">Doctor Refferal</span>
+              <span className="w-60  uppercase font-bold">Doctor Name</span>
               <input
                 type="text"
                 name="drrefferal"
                 value={formdata.drrefferal}
                 onChange={handleChange}
-                placeholder="Doctor Refferal"
+                placeholder="Doctor Name"
                 className="input input-bordered border-black w-80"
               />
             </label>
@@ -296,14 +298,14 @@ const admitpatient = () => {
 
           <div className="form-control mt-4">
             <label className="input-group">
-              <span className="w-60  uppercase font-bold">Medical case</span>
+              <span className="w-60  uppercase font-bold">Disease</span>
 
               <textarea
                 type="text"
                 name="medicalCase"
                 value={formdata.medicalCase}
                 onChange={handleChange}
-                placeholder="Medical case"
+                placeholder="Disease"
                 required
                 className="input input-bordered border-black w-80 "></textarea>
             </label>
