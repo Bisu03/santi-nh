@@ -23,10 +23,13 @@ export default async (req, res) => {
         medicalCase,
         drrefferal,
         dateOfAdmission,
+        admissiontype,
         admissioncharge,
         specialNeeds,
+        advance,
         doctor,
         diagnosticCharges,
+        accomodation,
       } = req.body;
 
       const newPatient = await Patient.create({
@@ -48,7 +51,10 @@ export default async (req, res) => {
           drrefferal,
           medicalCase,
           dateOfAdmission,
+          admissiontype,
           admissioncharge,
+          advance,
+          bedno: accomodation.bedNo,
         });
 
         const billing = await AdmissionBilling.create({
@@ -57,6 +63,7 @@ export default async (req, res) => {
           specialNeeds,
           doctor,
           diagnosticCharges,
+          accommodationDetails: accomodation,
         });
         if (billing) {
           await Admission.findByIdAndUpdate(Patientadmission._id, {

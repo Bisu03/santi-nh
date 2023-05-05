@@ -23,6 +23,7 @@ const admitpatient = () => {
     medicalCase: "",
     dateOfAdmission: new Date().toISOString().substring(0, 10),
     admissioncharge: "",
+    advance: "",
   };
 
   const [formdata, setFormdata] = useState(initialFormdata);
@@ -63,6 +64,15 @@ const admitpatient = () => {
     ],
     total: "",
   });
+
+  const [accomodation, setAccomodation] = useState({
+    bedType: "",
+    bedNo: "",
+    chargeperday: "",
+    numberofdays: "",
+    total: "",
+  });
+
 
   const [loding, setLoding] = useState(false);
 
@@ -106,6 +116,7 @@ const admitpatient = () => {
       medicalCase,
       dateOfAdmission,
       admissioncharge,
+      advance,
     } = formdata;
 
     try {
@@ -128,6 +139,8 @@ const admitpatient = () => {
         specialNeeds,
         doctor,
         diagnosticCharges,
+        advance,
+        accomodation,
       });
       setFormdata(initialFormdata);
       setLoding(false);
@@ -343,16 +356,64 @@ const admitpatient = () => {
 
           <div className="form-control mt-4">
             <label className="input-group">
-              <span className="w-60  uppercase font-bold">
-                Advance{" "}
-              </span>
+              <span className="w-60  uppercase font-bold">Advance </span>
               <input
                 type="text"
                 name="advance"
-                // value={formdata.advance}
-                // onChange={handleChange}
+                value={formdata.advance}
+                onChange={handleChange}
                 placeholder="Advance Payment"
                 className="input input-bordered border-black w-80 "
+              />
+            </label>
+          </div>
+
+          <div className="form-control mt-4 ">
+            <label className="input-group">
+              <span className="w-60  uppercase font-bold ">Bed type</span>
+              <select
+                name="bed-type"
+                value={accomodation?.bedType}
+                onChange={(e) =>
+                  setAccomodation({
+                    ...accomodation,
+                    bedType: e.target.value,
+                  })
+                }
+                className="input input-bordered border-black  w-80 text-xl ">
+                <option>Select Bed type</option>
+                <option value="ICCU">ICCU</option>
+                <option value="HDU">HDU</option>
+                <option value="NICU">NICU</option>
+                <option value="PICU">PICU</option>
+                <option value="SNCU">SNCU</option>
+                <option value="General cabin">General cabin</option>
+                <option value="Delux cabin">Delux cabin</option>
+                <option value="Double bed D.cabin">Double bed D.cabin</option>
+                <option value="Isolation">Isolation</option>
+                <option value="General bed">General bed</option>
+                <option value="General bed AC">General bed AC</option>
+                <option value="Meternity ward">Meternity ward</option>
+                <option value="ICU">ICU isolation</option>
+                <option value="Emergency bed">Emergency bed</option>
+              </select>
+            </label>
+          </div>
+
+          <div className="form-control mt-4">
+            <label className="input-group">
+              <span className="w-60  uppercase font-bold">Bed number</span>
+              <input
+                type="number"
+                name="bedNo"
+                value={accomodation?.bedNo}
+                onChange={(e) =>
+                  setAccomodation({
+                    ...accomodation,
+                    bedNo: e.target.value,
+                  })
+                }
+                className="input input-bordered border-black w-80"
               />
             </label>
           </div>

@@ -178,6 +178,9 @@ const AdmissionDetails = () => {
               <p className={admissionDetailsStyles.headP}>
                 Contact No: +91 {Alldetails.phonenumber}
               </p>
+              <p className={admissionDetailsStyles.headP}>
+                Regd No: {Alldetails.regnumber}
+              </p>
               <p className={admissionDetailsStyles.headP}>{Alldetails.url}</p>
             </div>
 

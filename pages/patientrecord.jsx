@@ -110,7 +110,7 @@ const patientrecord = () => {
                     <td>{patient?.patient?.gender}</td>
                     <td>{patient?.medicalCase}</td>
                     <td>{patient?.drrefferal}</td>
-                    <td>{patient?.accommodationDetails?.bedNo}</td>
+                    <td>{patient?.bedno}</td>
                     <td>{patient?.admissiontype}</td>
                     <td>
                       {patient?.billingStatus === "Done" ? (

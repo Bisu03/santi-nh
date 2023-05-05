@@ -568,6 +568,7 @@ const EditAdmission = () => {
                 value={patientDetails?.admissiontype}
                 onChange={handlePatientDetailsChange}
                 className="input input-bordered border-black w-8/12 text-xl ">
+                <option>select</option>
                 <option value="General">General</option>
                 <option value="Swastha Swathi">Swastha Swathi</option>
                 <option value="Cashless">Cashless</option>

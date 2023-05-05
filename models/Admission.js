@@ -20,6 +20,8 @@ const admissionSchema = new mongoose.Schema(
     admissiontype: { type: String },
     guardianContactNo: { type: String },
     drrefferal: { type: String },
+    bedno: { type: String },
+    advance: { type: String },
     admissioncharge: { type: String },
     dateOfAdmission: { type: String },
     dateOfDeparture: { type: String },
