@@ -118,7 +118,7 @@ const dashboard = () => {
           <div className="stat-title">{getdays} Income</div>
           <div className="stat-value">{total}</div>
         </div>
-        <div className="stat place-items-center">
+        {/* <div className="stat place-items-center">
           <div className="stat-title">{getdays} Spent</div>
           <div className="stat-value">{totalSpent}</div>
         </div>
@@ -132,7 +132,7 @@ const dashboard = () => {
               <h2>0/-</h2>
             )}
           </div>
-        </div>
+        </div> */}
       </div>
 
       {/* <div className=" flex justify-center my-4 ">
@@ -205,7 +205,7 @@ const dashboard = () => {
           </thead>
           <tbody>
             <>
-              {dashData?.getadmission?.map(
+              {dashData?.getdeparture?.map(
                 (patient, indx) =>
                   patient.billingStatus === "Done" && (
                     <tr key={patient?._id}>
@@ -227,7 +227,7 @@ const dashboard = () => {
         </table>
       </div>
 
-      <div className="overflow-x-auto bg-accent p-5 my-5 ">
+      {/* <div className="overflow-x-auto bg-accent p-5 my-5 ">
         <div className=" text-center font-bold text-base-100 mb-5 ">
           <p>Todays Spent</p>
         </div>
@@ -244,7 +244,7 @@ const dashboard = () => {
           </thead>
           <tbody></tbody>
         </table>
-      </div>
+      </div> */}
     </div>
   );
 };

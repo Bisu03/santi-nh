@@ -97,6 +97,8 @@ const patientrecord = () => {
                 <th>Bed Type</th>
                 <th>Bed Number</th>
                 <th>Admission Type</th>
+                <th>Date Of Admission</th>
+                <th>Date Of Discharge</th>
                 <th>Billing Status</th>
                 <th>Action</th>
               </tr>
@@ -114,6 +116,8 @@ const patientrecord = () => {
                     <td>{patient?.bedtype}</td>
                     <td>{patient?.bedno}</td>
                     <td>{patient?.admissiontype}</td>
+                    <td>{patient?.dateOfAdmission}</td>
+                    <td>{patient?.dateOfDeparture}</td>
                     <td>
                       {patient?.billingStatus === "Done" ? (
                         <div className="badge badge-success gap-2">Done</div>
