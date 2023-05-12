@@ -119,10 +119,14 @@ const patientrecord = () => {
                     <td>{patient?.dateOfAdmission}</td>
                     <td>{patient?.dateOfDeparture}</td>
                     <td>
-                      {patient?.billingStatus === "Done" ? (
+                      {patient?.billingStatus === "Done" && (
                         <div className="badge badge-success gap-2">Done</div>
-                      ) : (
+                      )}
+                      {patient?.billingStatus === "Pending" && (
                         <div className="badge badge-warning gap-2">Pending</div>
+                      )}
+                      {patient?.billingStatus === "Cancel" && (
+                        <div className="badge badge-error gap-2">Cancel</div>
                       )}
                     </td>
                     <td>

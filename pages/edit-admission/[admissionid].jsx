@@ -1302,6 +1302,7 @@ const EditAdmission = () => {
                     onChange={(e) => setBillingStatus(e.target.value)}>
                     <option value="Done">Done</option>
                     <option value="Pending">Pending</option>
+                    <option value="Cancel">Cancel</option>
                   </select>
                 </label>
               </div>
