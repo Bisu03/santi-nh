@@ -116,8 +116,12 @@ const patientrecord = () => {
                     <td>{patient?.bedtype}</td>
                     <td>{patient?.bedno}</td>
                     <td>{patient?.admissiontype}</td>
-                    <td>{patient?.dateOfAdmission}</td>
-                    <td>{patient?.dateOfDeparture}</td>
+                    <td>
+                      {patient?.dateOfAdmission.split("-").reverse().join("-")}
+                    </td>
+                    <td>
+                      {patient?.dateOfDeparture?.split("-").reverse().join("-")}
+                    </td>
                     <td>
                       {patient?.billingStatus === "Done" && (
                         <div className="badge badge-success gap-2">Done</div>

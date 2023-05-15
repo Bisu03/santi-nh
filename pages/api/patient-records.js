@@ -11,6 +11,15 @@ export default async (req, res) => {
       const keyword = req.query.search
         ? {
             $or: [{ admissionId: { $regex: req.query.search, $options: "i" } }],
+            $or: [
+              {
+                "patient.fullname": {
+                  $elemMatch: {
+                    fullname: { $regex: req.query.search, $options: "i" },
+                  },
+                },
+              },
+            ],
           }
         : {};
 
@@ -18,10 +27,8 @@ export default async (req, res) => {
         .populate({
           path: "patient",
         })
-        .sort({
-          createdAt: -1,
-        })
-        .limit(50);
+        .sort("dateOfAdmission")
+        // .limit(50);
       return res.status(200).json(admissions);
     } else {
       return res.status(401).json({ message: "Unauthorized" });

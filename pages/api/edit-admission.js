@@ -68,12 +68,13 @@ export default async (req, res) => {
         drrefferal,
         medicalCase,
         dateOfAdmission,
+        bedno: accomodation.bedNo,
+        bedtype: accomodation.bedType,
         dateOfDeparture,
         admissioncharge,
         admissiontype,
         billingStatus: billingStatus,
       });
-
 
       if (billingDone) {
         await AdmissionBilling.findOneAndUpdate(

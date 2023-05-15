@@ -49,6 +49,8 @@ const dashboard = () => {
     });
   };
   const handleweek = () => {
+    setDate({});
+    setGetdays("Weekly");
     let currentDate = new Date();
     let firstday = new Date(
       currentDate.getFullYear(),
@@ -66,6 +68,8 @@ const dashboard = () => {
   };
 
   const handlemnth = () => {
+    setGetdays("Monthly");
+    setDate({});
     let now = new Date();
     let firstDay = new Date(now.getFullYear(), now.getMonth() - 1, 1)
       .toISOString()
@@ -135,9 +139,9 @@ const dashboard = () => {
         </div> */}
       </div>
 
-      {/* <div className=" flex justify-center my-4 ">
+      <div className=" flex justify-center my-4 ">
         <div className="btn-group">
-          <button onClick={handletoday} className="btn btn-active">
+          <button onClick={handletoday} className="btn">
             Todays
           </button>
           <button onClick={handleweek} className="btn">
@@ -147,87 +151,91 @@ const dashboard = () => {
             Months
           </button>
         </div>
-      </div> */}
-
-      <div className="overflow-x-auto bg-accent p-5 my-5 ">
-        <div className=" text-center font-bold text-base-100 mb-5 ">
-          <p>Todays Patient Admit Record</p>
-        </div>
-
-        <table className="table table-compact w-full">
-          <thead>
-            <tr>
-              <th></th>
-              <th>Admission ID</th>
-              <th>Name</th>
-              <th>Phone No</th>
-              <th>Gender</th>
-              <th>Billing Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            <>
-              {dashData?.getadmission?.map(
-                (patient, indx) =>
-                  patient.billingStatus === "Pending" && (
-                    <tr key={patient?._id}>
-                      <th> {indx + 1} </th>
-                      <td>{patient?.admissionId}</td>
-                      <td>{patient?.patient?.fullname}</td>
-                      <td>{patient?.patient?.contactNo}</td>
-                      <td>{patient?.patient?.gender}</td>
-                      <td>
-                        <div className="badge badge-warning gap-2">Pending</div>
-                      </td>
-                    </tr>
-                  )
-              )}
-            </>
-          </tbody>
-        </table>
       </div>
 
-      <div className="overflow-x-auto bg-accent p-5 my-5 ">
-        <div className=" text-center font-bold text-base-100 mb-5 ">
-          <p>Todays Patient Dispatched Record</p>
-        </div>
+      {!loading ? (
+        <>
+          <div className="overflow-x-auto bg-accent p-5 my-5 ">
+            <div className=" text-center font-bold text-base-100 mb-5 ">
+              <p>{getdays} Patient Admit Record</p>
+            </div>
 
-        <table className="table table-compact w-full">
-          <thead>
-            <tr>
-              <th></th>
-              <th>Admission ID</th>
-              <th>Name</th>
-              <th>Phone No</th>
-              <th>Gender</th>
-              <th>Billing Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            <>
-              {dashData?.getdeparture?.map(
-                (patient, indx) =>
-                  patient.billingStatus === "Done" && (
-                    <tr key={patient?._id}>
-                      <th> {indx + 1} </th>
-                      <td>{patient?.admissionId}</td>
-                      <td>{patient?.patient?.fullname}</td>
-                      <td>{patient?.patient?.contactNo}</td>
-                      <td>{patient?.patient?.gender}</td>
-                      <td>
-                        <div className="badge badge-success gap-2">
-                          {patient.billingStatus}
-                        </div>
-                      </td>
-                    </tr>
-                  )
-              )}
-            </>
-          </tbody>
-        </table>
-      </div>
+            <table className="table table-compact w-full">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Admission ID</th>
+                  <th>Name</th>
+                  <th>Phone No</th>
+                  <th>Gender</th>
+                  <th>Billing Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <>
+                  {dashData?.getadmission?.map(
+                    (patient, indx) =>
+                      patient.billingStatus === "Pending" && (
+                        <tr key={patient?._id}>
+                          <th> {indx + 1} </th>
+                          <td>{patient?.admissionId}</td>
+                          <td>{patient?.patient?.fullname}</td>
+                          <td>{patient?.patient?.contactNo}</td>
+                          <td>{patient?.patient?.gender}</td>
+                          <td>
+                            <div className="badge badge-warning gap-2">
+                              Pending
+                            </div>
+                          </td>
+                        </tr>
+                      )
+                  )}
+                </>
+              </tbody>
+            </table>
+          </div>
 
-      {/* <div className="overflow-x-auto bg-accent p-5 my-5 ">
+          <div className="overflow-x-auto bg-accent p-5 my-5 ">
+            <div className=" text-center font-bold text-base-100 mb-5 ">
+              <p>{getdays} Patient Dispatched Record</p>
+            </div>
+
+            <table className="table table-compact w-full">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Admission ID</th>
+                  <th>Name</th>
+                  <th>Phone No</th>
+                  <th>Gender</th>
+                  <th>Billing Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <>
+                  {dashData?.getdeparture?.map(
+                    (patient, indx) =>
+                      patient.billingStatus === "Done" && (
+                        <tr key={patient?._id}>
+                          <th> {indx + 1} </th>
+                          <td>{patient?.admissionId}</td>
+                          <td>{patient?.patient?.fullname}</td>
+                          <td>{patient?.patient?.contactNo}</td>
+                          <td>{patient?.patient?.gender}</td>
+                          <td>
+                            <div className="badge badge-success gap-2">
+                              {patient.billingStatus}
+                            </div>
+                          </td>
+                        </tr>
+                      )
+                  )}
+                </>
+              </tbody>
+            </table>
+          </div>
+
+          {/* <div className="overflow-x-auto bg-accent p-5 my-5 ">
         <div className=" text-center font-bold text-base-100 mb-5 ">
           <p>Todays Spent</p>
         </div>
@@ -245,6 +253,10 @@ const dashboard = () => {
           <tbody></tbody>
         </table>
       </div> */}
+        </>
+      ) : (
+        <LodingScreen />
+      )}
     </div>
   );
 };
