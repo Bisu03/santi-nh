@@ -27,7 +27,7 @@ export default async (req, res) => {
         .populate({
           path: "patient",
         })
-        .sort("dateOfAdmission")
+        .sort("-dateOfAdmission")
         // .limit(50);
       return res.status(200).json(admissions);
     } else {
