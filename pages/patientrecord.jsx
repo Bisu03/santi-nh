@@ -13,12 +13,21 @@ const patientrecord = () => {
   const [loading, setLoading] = useState(false);
   const [fetchData, setFetchData] = useState([]);
   const [deleteLoding, setDeleteLoding] = useState(false);
+  const [getDate, setDate] = useState({
+    fromdate: new Date().toISOString().substring(0, 10),
+    todate: new Date().toISOString().substring(0, 10),
+  });
 
   const getdata = async () => {
     setLoading(true);
     try {
       const { data } = await axios.get(
-        "/api/patient-records?search=" + searchQuery
+        "/api/patient-records?search=" +
+          searchQuery +
+          "&fromdate=" +
+          getDate.fromdate +
+          "&todate=" +
+          getDate.todate
       );
       setLoading(false);
       console.log(data);
@@ -44,9 +53,13 @@ const patientrecord = () => {
       });
   };
 
+  const handleChange = (e) => {
+    setDate({ ...getDate, [e.target.name]: e.target.value });
+  };
+
   useEffect(() => {
     getdata();
-  }, [setFetchData, searchQuery]);
+  }, [setFetchData, searchQuery, getDate]);
 
   return (
     <>
@@ -80,6 +93,27 @@ const patientrecord = () => {
               </svg>
             </button>
           </div>
+        </div>
+      </div>
+      <div className="flex flex-col w-full lg:flex-row mt-5">
+        <div className="grid flex-grow h-32 card bg-base-300 rounded-none  place-items-center">
+          <input
+            type="date"
+            name="fromdate"
+            value={getDate.fromdate}
+            onChange={handleChange}
+            className="input input-bordered w-96 text-black "
+          />
+        </div>
+        {/* <div className="divider lg:divider-horizontal">OR</div> */}
+        <div className="grid flex-grow h-32 card bg-base-300 rounded-none place-items-center">
+          <input
+            type="date"
+            name="todate"
+            value={getDate.todate}
+            onChange={handleChange}
+            className="input input-bordered w-96 text-black "
+          />
         </div>
       </div>
 

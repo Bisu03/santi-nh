@@ -13,8 +13,18 @@ export default async (req, res) => {
             $or: [{ admissionId: { $regex: req.query.search, $options: "i" } }],
             // $or: [{ fullname: { $regex: req.query.search, $options: "i" } }],
           }
-        : {};
+        : {
+            $or: [
+              {
+                dateOfAdmission: {
+                  $gte: req.query.fromdate,
+                  $lte: req.query.todate,
+                },
+              },
+            ],
+          };
 
+      console.log(req.query);
       let admissions = await Admission.find(keyword)
         .populate({
           path: "patient",

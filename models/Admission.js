@@ -4,6 +4,7 @@ import Patient from "./Patient";
 
 const admissionSchema = new mongoose.Schema(
   {
+    fullname: { type: String },
     admissionId: { type: String, required: true, unique: true },
     patient: {
       type: mongoose.Schema.Types.ObjectId,
