@@ -214,7 +214,7 @@ const admitpatient = () => {
                 value={formdata?.religion}
                 onChange={handleChange}
                 className="input input-bordered border-black  w-80 text-xl ">
-                <option>Select Bed type</option>
+                <option>Select</option>
                 <option value="Hindu">Hindu</option>
                 <option value="Islam">Islam</option>
                 <option value="Christian">Christian</option>
